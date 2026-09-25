@@ -1,0 +1,73 @@
+{
+  "project": "ai-learn-10-eval-harness",
+  "seed": 42,
+  "n_items": 24,
+  "config": {
+    "rubric_threshold": 0.7,
+    "max_drop": 0.05,
+    "gate_thresholds": {
+      "rubric_pass": 0.75,
+      "contains": 0.6
+    },
+    "blocking_metrics": [
+      "rubric_pass",
+      "contains"
+    ],
+    "pairs": [
+      [
+        "rag_top1",
+        "baseline_random"
+      ],
+      [
+        "rag_top1_span",
+        "rag_top1"
+      ],
+      [
+        "rag_top3_concat",
+        "rag_top1"
+      ]
+    ]
+  },
+  "overall": {
+    "baseline_random": {
+      "exact_match": 0.0,
+      "token_f1": 0.0134,
+      "contains": 0.0,
+      "rubric_score": 0.0083,
+      "rubric_pass": 0.0,
+      "n": 24
+    },
+    "rag_top1": {
+      "exact_match": 0.0,
+      "token_f1": 0.3488,
+      "contains": 0.6667,
+      "rubric_score": 0.6833,
+      "rubric_pass": 0.6667,
+      "n": 24
+    },
+    "rag_top1_span": {
+      "exact_match": 0.0833,
+      "token_f1": 0.4985,
+      "contains": 0.4583,
+      "rubric_score": 0.6417,
+      "rubric_pass": 0.6667,
+      "n": 24
+    },
+    "rag_top3_concat": {
+      "exact_match": 0.0,
+      "token_f1": 0.2806,
+      "contains": 0.875,
+      "rubric_score": 0.8667,
+      "rubric_pass": 0.875,
+      "n": 24
+    }
+  },
+  "gates": {
+    "rag_top1 vs baseline_random": false,
+    "rag_top1_span vs rag_top1": false,
+    "rag_top3_concat vs rag_top1": true
+  },
+  "best_gated_model": "rag_top3_concat",
+  "runtime_s": 0.0125,
+  "pass": true
+}

@@ -1,0 +1,470 @@
+{
+ "project": "ai-learn-10-eval-harness",
+ "seed": 42,
+ "n_docs": 20,
+ "n_items": 24,
+ "categories": ["ml", "nlp", "python", "science"],
+ "metric_keys": ["exact_match", "token_f1", "contains", "rubric_score", "rubric_pass"],
+ "config": {
+  "rubric_threshold": 0.7,
+  "max_drop": 0.05,
+  "gate_thresholds": {
+   "rubric_pass": 0.75,
+   "contains": 0.6
+  },
+  "blocking_metrics": ["rubric_pass", "contains"],
+  "pairs": [
+   ["rag_top1", "baseline_random"],
+   ["rag_top1_span", "rag_top1"],
+   ["rag_top3_concat", "rag_top1"]
+  ]
+ },
+ "models": {
+  "baseline_random": {
+   "rows": {
+    "e01": [0.0, 0.0, 0.0, 0.2, 0.0],
+    "e02": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e03": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e04": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e05": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e06": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e07": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e08": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e09": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e10": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e11": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e12": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e13": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e14": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e15": [0.0, 0.1538, 0.0, 0.0, 0.0],
+    "e16": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e17": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e18": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e19": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e20": [0.0, 0.1667, 0.0, 0.0, 0.0],
+    "e21": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e22": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e23": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e24": [0.0, 0.0, 0.0, 0.0, 0.0]
+   },
+   "overall": {
+    "exact_match": 0.0,
+    "token_f1": 0.0134,
+    "contains": 0.0,
+    "rubric_score": 0.0083,
+    "rubric_pass": 0.0,
+    "n": 24
+   },
+   "per_category": {
+    "ml": {
+     "exact_match": 0.0,
+     "token_f1": 0.0,
+     "contains": 0.0,
+     "rubric_score": 0.0,
+     "rubric_pass": 0.0,
+     "n": 6
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": 0.0256,
+     "contains": 0.0,
+     "rubric_score": 0.0,
+     "rubric_pass": 0.0,
+     "n": 6
+    },
+    "python": {
+     "exact_match": 0.0,
+     "token_f1": 0.0,
+     "contains": 0.0,
+     "rubric_score": 0.0333,
+     "rubric_pass": 0.0,
+     "n": 6
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": 0.0278,
+     "contains": 0.0,
+     "rubric_score": 0.0,
+     "rubric_pass": 0.0,
+     "n": 6
+    }
+   },
+   "runtime_s": 0.0016
+  },
+  "rag_top1": {
+   "rows": {
+    "e01": [0.0, 0.6, 1.0, 1.0, 1.0],
+    "e02": [0.0, 0.0, 0.0, 0.2, 0.0],
+    "e03": [0.0, 0.6154, 1.0, 1.0, 1.0],
+    "e04": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e05": [0.0, 0.2, 0.0, 0.2, 0.0],
+    "e06": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e07": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e08": [0.0, 0.5714, 1.0, 1.0, 1.0],
+    "e09": [0.0, 0.0, 0.0, 0.2, 0.0],
+    "e10": [0.0, 0.3636, 1.0, 0.8, 1.0],
+    "e11": [0.0, 0.875, 1.0, 1.0, 1.0],
+    "e12": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e13": [0.0, 0.625, 1.0, 1.0, 1.0],
+    "e14": [0.0, 0.2, 1.0, 1.0, 1.0],
+    "e15": [0.0, 0.5333, 1.0, 1.0, 1.0],
+    "e16": [0.0, 0.8, 1.0, 1.0, 1.0],
+    "e17": [0.0, 0.3333, 1.0, 1.0, 1.0],
+    "e18": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e19": [0.0, 0.4, 1.0, 1.0, 1.0],
+    "e20": [0.0, 0.4286, 1.0, 1.0, 1.0],
+    "e21": [0.0, 0.5, 1.0, 1.0, 1.0],
+    "e22": [0.0, 0.625, 1.0, 1.0, 1.0],
+    "e23": [0.0, 0.5333, 1.0, 1.0, 1.0],
+    "e24": [0.0, 0.1667, 1.0, 1.0, 1.0]
+   },
+   "overall": {
+    "exact_match": 0.0,
+    "token_f1": 0.3488,
+    "contains": 0.6667,
+    "rubric_score": 0.6833,
+    "rubric_pass": 0.6667,
+    "n": 24
+   },
+   "per_category": {
+    "ml": {
+     "exact_match": 0.0,
+     "token_f1": 0.3017,
+     "contains": 0.5,
+     "rubric_score": 0.5,
+     "rubric_pass": 0.5,
+     "n": 6
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": 0.4153,
+     "contains": 0.8333,
+     "rubric_score": 0.8333,
+     "rubric_pass": 0.8333,
+     "n": 6
+    },
+    "python": {
+     "exact_match": 0.0,
+     "token_f1": 0.2359,
+     "contains": 0.3333,
+     "rubric_score": 0.4,
+     "rubric_pass": 0.3333,
+     "n": 6
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": 0.4423,
+     "contains": 1.0,
+     "rubric_score": 1.0,
+     "rubric_pass": 1.0,
+     "n": 6
+    }
+   },
+   "runtime_s": 0.0021
+  },
+  "rag_top1_span": {
+   "rows": {
+    "e01": [1.0, 1.0, 1.0, 0.8, 1.0],
+    "e02": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e03": [0.0, 0.8571, 1.0, 1.0, 1.0],
+    "e04": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e05": [0.0, 0.3333, 0.0, 0.2, 0.0],
+    "e06": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e07": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e08": [1.0, 1.0, 1.0, 0.8, 1.0],
+    "e09": [0.0, 0.0, 0.0, 0.2, 0.0],
+    "e10": [0.0, 0.6667, 1.0, 0.8, 1.0],
+    "e11": [0.0, 0.8889, 0.0, 1.0, 1.0],
+    "e12": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e13": [0.0, 0.7273, 0.0, 1.0, 1.0],
+    "e14": [0.0, 0.6667, 1.0, 1.0, 1.0],
+    "e15": [0.0, 0.6667, 0.0, 1.0, 1.0],
+    "e16": [0.0, 0.8571, 1.0, 0.8, 1.0],
+    "e17": [0.0, 0.4444, 1.0, 1.0, 1.0],
+    "e18": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e19": [0.0, 0.5, 1.0, 1.0, 1.0],
+    "e20": [0.0, 0.5714, 0.0, 1.0, 1.0],
+    "e21": [0.0, 0.8571, 1.0, 1.0, 1.0],
+    "e22": [0.0, 0.8, 0.0, 1.0, 1.0],
+    "e23": [0.0, 0.7273, 1.0, 1.0, 1.0],
+    "e24": [0.0, 0.4, 1.0, 0.8, 1.0]
+   },
+   "overall": {
+    "exact_match": 0.0833,
+    "token_f1": 0.4985,
+    "contains": 0.4583,
+    "rubric_score": 0.6417,
+    "rubric_pass": 0.6667,
+    "n": 24
+   },
+   "per_category": {
+    "ml": {
+     "exact_match": 0.1667,
+     "token_f1": 0.4259,
+     "contains": 0.3333,
+     "rubric_score": 0.4667,
+     "rubric_pass": 0.5,
+     "n": 6
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": 0.5604,
+     "contains": 0.5,
+     "rubric_score": 0.8,
+     "rubric_pass": 0.8333,
+     "n": 6
+    },
+    "python": {
+     "exact_match": 0.1667,
+     "token_f1": 0.3651,
+     "contains": 0.3333,
+     "rubric_score": 0.3333,
+     "rubric_pass": 0.3333,
+     "n": 6
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": 0.6426,
+     "contains": 0.6667,
+     "rubric_score": 0.9667,
+     "rubric_pass": 1.0,
+     "n": 6
+    }
+   },
+   "runtime_s": 0.0019
+  },
+  "rag_top3_concat": {
+   "rows": {
+    "e01": [0.0, 0.3529, 1.0, 1.0, 1.0],
+    "e02": [0.0, 0.25, 1.0, 1.0, 1.0],
+    "e03": [0.0, 0.4211, 1.0, 1.0, 1.0],
+    "e04": [0.0, 0.3529, 1.0, 1.0, 1.0],
+    "e05": [0.0, 0.2667, 1.0, 1.0, 1.0],
+    "e06": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e07": [0.0, 0.5714, 1.0, 0.8, 1.0],
+    "e08": [0.0, 0.25, 1.0, 1.0, 1.0],
+    "e09": [0.0, 0.125, 1.0, 1.0, 1.0],
+    "e10": [0.0, 0.2857, 1.0, 1.0, 1.0],
+    "e11": [0.0, 0.56, 1.0, 1.0, 1.0],
+    "e12": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e13": [0.0, 0.4348, 1.0, 1.0, 1.0],
+    "e14": [0.0, 0.1053, 1.0, 1.0, 1.0],
+    "e15": [0.0, 0.3333, 1.0, 1.0, 1.0],
+    "e16": [0.0, 0.5, 1.0, 1.0, 1.0],
+    "e17": [0.0, 0.2105, 1.0, 1.0, 1.0],
+    "e18": [0.0, 0.0, 0.0, 0.0, 0.0],
+    "e19": [0.0, 0.2353, 1.0, 1.0, 1.0],
+    "e20": [0.0, 0.2609, 1.0, 1.0, 1.0],
+    "e21": [0.0, 0.3333, 1.0, 1.0, 1.0],
+    "e22": [0.0, 0.4, 1.0, 1.0, 1.0],
+    "e23": [0.0, 0.381, 1.0, 1.0, 1.0],
+    "e24": [0.0, 0.1053, 1.0, 1.0, 1.0]
+   },
+   "overall": {
+    "exact_match": 0.0,
+    "token_f1": 0.2806,
+    "contains": 0.875,
+    "rubric_score": 0.8667,
+    "rubric_pass": 0.875,
+    "n": 24
+   },
+   "per_category": {
+    "ml": {
+     "exact_match": 0.0,
+     "token_f1": 0.2987,
+     "contains": 0.8333,
+     "rubric_score": 0.8,
+     "rubric_pass": 0.8333,
+     "n": 6
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": 0.264,
+     "contains": 0.8333,
+     "rubric_score": 0.8333,
+     "rubric_pass": 0.8333,
+     "n": 6
+    },
+    "python": {
+     "exact_match": 0.0,
+     "token_f1": 0.2739,
+     "contains": 0.8333,
+     "rubric_score": 0.8333,
+     "rubric_pass": 0.8333,
+     "n": 6
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": 0.286,
+     "contains": 1.0,
+     "rubric_score": 1.0,
+     "rubric_pass": 1.0,
+     "n": 6
+    }
+   },
+   "runtime_s": 0.0026
+  }
+ },
+ "comparisons": {
+  "rag_top1 vs baseline_random": {
+   "overall_delta": {
+    "exact_match": 0.0,
+    "token_f1": 0.3354,
+    "contains": 0.6667,
+    "rubric_score": 0.675,
+    "rubric_pass": 0.6667
+   },
+   "per_category_delta": {
+    "ml": {
+     "exact_match": 0.0,
+     "token_f1": 0.3017,
+     "contains": 0.5,
+     "rubric_score": 0.5,
+     "rubric_pass": 0.5
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": 0.3897,
+     "contains": 0.8333,
+     "rubric_score": 0.8333,
+     "rubric_pass": 0.8333
+    },
+    "python": {
+     "exact_match": 0.0,
+     "token_f1": 0.2359,
+     "contains": 0.3333,
+     "rubric_score": 0.3667,
+     "rubric_pass": 0.3333
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": 0.4145,
+     "contains": 1.0,
+     "rubric_score": 1.0,
+     "rubric_pass": 1.0
+    }
+   },
+   "regressions": [],
+   "pass_to_fail": [],
+   "fail_to_pass": ["e01", "e03", "e08", "e10", "e11", "e13", "e14", "e15", "e16", "e17", "e19", "e20", "e21", "e22", "e23", "e24"],
+   "max_drop": 0.05,
+   "blocking_metrics": ["rubric_pass", "contains"],
+   "gate": {
+    "checks": {
+     "rubric_pass>=0.75": false,
+     "contains>=0.6": true,
+     "no_regressions": true
+    },
+    "passed": false
+   }
+  },
+  "rag_top1_span vs rag_top1": {
+   "overall_delta": {
+    "exact_match": 0.0833,
+    "token_f1": 0.1497,
+    "contains": -0.2084,
+    "rubric_score": -0.0416,
+    "rubric_pass": 0.0
+   },
+   "per_category_delta": {
+    "ml": {
+     "exact_match": 0.1667,
+     "token_f1": 0.1242,
+     "contains": -0.1667,
+     "rubric_score": -0.0333,
+     "rubric_pass": 0.0
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": 0.1451,
+     "contains": -0.3333,
+     "rubric_score": -0.0333,
+     "rubric_pass": 0.0
+    },
+    "python": {
+     "exact_match": 0.1667,
+     "token_f1": 0.1292,
+     "contains": 0.0,
+     "rubric_score": -0.0667,
+     "rubric_pass": 0.0
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": 0.2003,
+     "contains": -0.3333,
+     "rubric_score": -0.0333,
+     "rubric_pass": 0.0
+    }
+   },
+   "regressions": ["overall.contains", "ml.contains", "nlp.contains", "science.contains"],
+   "pass_to_fail": [],
+   "fail_to_pass": [],
+   "max_drop": 0.05,
+   "blocking_metrics": ["rubric_pass", "contains"],
+   "gate": {
+    "checks": {
+     "rubric_pass>=0.75": false,
+     "contains>=0.6": false,
+     "no_regressions": false
+    },
+    "passed": false
+   }
+  },
+  "rag_top3_concat vs rag_top1": {
+   "overall_delta": {
+    "exact_match": 0.0,
+    "token_f1": -0.0682,
+    "contains": 0.2083,
+    "rubric_score": 0.1834,
+    "rubric_pass": 0.2083
+   },
+   "per_category_delta": {
+    "ml": {
+     "exact_match": 0.0,
+     "token_f1": -0.003,
+     "contains": 0.3333,
+     "rubric_score": 0.3,
+     "rubric_pass": 0.3333
+    },
+    "nlp": {
+     "exact_match": 0.0,
+     "token_f1": -0.1513,
+     "contains": 0.0,
+     "rubric_score": 0.0,
+     "rubric_pass": 0.0
+    },
+    "python": {
+     "exact_match": 0.0,
+     "token_f1": 0.038,
+     "contains": 0.5,
+     "rubric_score": 0.4333,
+     "rubric_pass": 0.5
+    },
+    "science": {
+     "exact_match": 0.0,
+     "token_f1": -0.1563,
+     "contains": 0.0,
+     "rubric_score": 0.0,
+     "rubric_pass": 0.0
+    }
+   },
+   "regressions": [],
+   "pass_to_fail": [],
+   "fail_to_pass": ["e02", "e04", "e05", "e07", "e09"],
+   "max_drop": 0.05,
+   "blocking_metrics": ["rubric_pass", "contains"],
+   "gate": {
+    "checks": {
+     "rubric_pass>=0.75": true,
+     "contains>=0.6": true,
+     "no_regressions": true
+    },
+    "passed": true
+   }
+  }
+ },
+ "best_gated_model": "rag_top3_concat",
+ "runtime_s": 0.0125,
+ "plots": ["overall_metrics.svg", "per_category_rubric.svg", "regression_deltas.svg"],
+ "row_format": ["id -> exact_match, token_f1, contains, rubric_score, rubric_pass"]
+}
