@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import io
-import re
 from pathlib import Path
 from typing import Any, Dict, List
 
@@ -12,23 +11,15 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
+from svg_utils import minify_svg  # noqa: E402
+
 plt.rcParams["svg.hashsalt"] = "ai-learn-10"
 plt.rcParams["svg.fonttype"] = "none"  # keep text as <text>, small SVGs
 plt.rcParams["font.family"] = "sans-serif"
 plt.rcParams["font.sans-serif"] = ["DejaVu Sans"]
+plt.rcParams["axes.unicode_minus"] = False
 _META = {"Date": None}
 _COLORS = ["#adb5bd", "#2a9d8f", "#e9c46a", "#e76f51", "#264653"]
-
-
-def _minify_svg(svg: str) -> str:
-    """Shrink matplotlib SVG text (drop metadata, round coords, collapse whitespace)."""
-    svg = re.sub(r"<metadata>.*?</metadata>", "", svg, flags=re.S)
-    svg = re.sub(r"(?<!version=\")\d+\.\d+", lambda m: str(round(float(m.group(0)))), svg)
-    svg = re.sub(r' (id|clip-path)="[^"]*"', "", svg)
-    svg = re.sub(r"<clipPath.*?</clipPath>", "", svg, flags=re.S)
-    svg = re.sub(r"<!DOCTYPE.*?>", "", svg, flags=re.S)
-    svg = re.sub(r"\s*\n\s*", " ", svg)
-    return svg.strip() + "\n"
 
 
 def _save(fig, path: Path) -> str:
@@ -36,7 +27,7 @@ def _save(fig, path: Path) -> str:
     buf = io.StringIO()
     fig.savefig(buf, format="svg", metadata=_META)
     plt.close(fig)
-    path.write_text(_minify_svg(buf.getvalue()), encoding="utf-8")
+    path.write_text(minify_svg(buf.getvalue()), encoding="utf-8")
     return path.name
 
 
